@@ -35,7 +35,7 @@ Esse projeto foi produzido com intuito de prática e aprendizado. Foi utilizado 
 
 <h2>Como usar</h2>
 
-Esse projeto não está hospedado ainda por tanto se você quiser testar em sua máquina basta baixar ele através do botão CODE em verde do lado do repositório e em seguida escolher Download ZIP que os arquivos iram para sua área de download.Após extrair a pasta do projeto para sua área de trabalho basta entrar na pasta NikeSportsAir-PageWeb e dar um duplo clique em cima do arquivo index.html que ele será aberto na seu navegador.
+Esse projeto não está hospedado ainda por tanto se você quiser testar em sua máquina basta baixar ele através do botão CODE em verde do lado do repositório e em seguida escolher Download ZIP que os arquivos iram para sua área de download.Após extrair a pasta do projeto para sua área de trabalho basta entrar na pasta CLIMATIZADORES e dar um duplo clique em cima do arquivo index.html que ele será aberto na seu navegador.
 
 <img  src="./screenshots/forma-de-baixar-projeto.png"  alt="forma de baixar projeto">
 
