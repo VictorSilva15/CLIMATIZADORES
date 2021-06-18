@@ -1,5 +1,7 @@
-let App = document.querySelector(".App");
-let h1 = document.querySelector(".title-1");
+let appAir = document.querySelector(".AppAir");
+let appSen = document.querySelector(".AppSen");
+let title1 = document.querySelector(".title-1");
+let title2 = document.querySelector(".title-2");
 const url = "https://climatizadores-json.vercel.app/devices.json";
 
 async function convertJson() {
@@ -8,9 +10,12 @@ async function convertJson() {
     response = await response.json();
     let responseAir = await response.airConditioning;
     let responseSensor = await response.sensorsTH;
-    h1.innerHTML += ` (${responseAir.length})`;
+
+    title1.innerHTML += ` (${responseAir.length})`;
+
+    //bulding the air conditioning cards
     responseAir.map((item, index) => {
-      App.innerHTML += `
+      appAir.innerHTML += `
         <div class="card ${item.state == -1 ? "turnoff" : ""}">
 
           <div class="info">
@@ -63,6 +68,66 @@ async function convertJson() {
       return item;
     });
 
+    title2.innerHTML += ` (${responseSensor.length * 2})`;
+    //building sensors cards
+    responseSensor.map((item, index) => {
+      appSen.innerHTML += `
+      <div class="card ${item.stateCold == -1 ? "turnoff" : ""}">
+
+      <div class="info">
+        <i class="fa fa-thermometer-empty"></i>
+        <p>COR.FRIO ${index + 1}</p>
+        <i class="fa fa-exclamation-circle"></i>
+      </div>
+
+      <div class="values">
+        <div class="circle">
+          <p>TH</p>
+        </div>
+      </div>
+
+      <div class="${item.stateCold == 1 ? "on" : "off"}">
+      
+      <p> <i class="fa fa-circle"></i> ${
+        item.stateCold == 1 ? "LIGADO" : "DESLIGADO"
+      }</p>
+      ${
+        item.stateCold == 1
+          ? '<i class="fa fa-check"></i>'
+          : '<i class="fa fa-exclamation-triangle"></i>'
+      }
+      </div>
+    </div>
+
+    <div class="card ${item.stateHot == -1 ? "turnoff" : ""}">
+
+      <div class="info">
+        <i class="fa fa-thermometer-empty"></i>
+        <p>COR.QUENTE ${index + 1}</p>
+        <i class="fa fa-exclamation-circle"></i>
+      </div>
+
+      <div class="values">
+        <div class="circle">
+          <p>TH</p>
+        </div>
+      </div>
+
+      <div class="${item.stateHot == 1 ? "on" : "off"}">
+      
+      <p> <i class="fa fa-circle"></i> ${
+        item.stateHot == 1 ? "LIGADO" : "DESLIGADO"
+      }</p>
+      ${
+        item.stateHot == 1
+          ? '<i class="fa fa-check"></i>'
+          : '<i class="fa fa-exclamation-triangle"></i>'
+      }
+      </div>
+    </div>
+      `;
+    });
+
     //function that show air conditioner informations
     let show = document.querySelectorAll(".fa-exclamation-circle");
     let div = document.createElement("div");
@@ -99,7 +164,8 @@ async function convertJson() {
     });
     return responseAir;
   } catch (err) {
-    h1.innerHTML = "[ERROR], We can't acess now, try later";
+    alert("[ERROR], We can't acess now, try later");
+    console.log(err);
     throw Error("[ERROR], We can't acess now, try later");
   }
 }
