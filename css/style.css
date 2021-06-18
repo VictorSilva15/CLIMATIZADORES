@@ -9,14 +9,14 @@ body {
   color: #444;
   transition: background 0.5s;
 }
-.title-1 {
+h1 {
   font-size: 20px;
   margin: 20px;
   text-transform: uppercase;
 }
 .container {
-  width: 80%;
-  height: 80vh;
+  width: 90%;
+  height: auto;
   margin: 20px auto;
 }
 .App {
@@ -136,7 +136,7 @@ body {
   color: #aa0505;
 }
 .print {
-  width: 80%;
+  width: 90%;
   margin: 20px auto;
 }
 .informations {
