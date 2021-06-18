@@ -21,7 +21,7 @@ async function convertJson() {
           <div class="info">
             <i class="fa fa-thermometer-empty"></i>
             <p>AC${index + 1}</p>
-            <i class="fa fa-exclamation-circle"></i>
+            <i class="fa fa-exclamation-circle iconShow"></i>
           </div>
 
           <div class="values">
@@ -74,62 +74,63 @@ async function convertJson() {
       appSen.innerHTML += `
       <div class="card ${item.stateCold == -1 ? "turnoff" : ""}">
 
-      <div class="info">
-        <i class="fa fa-thermometer-empty"></i>
-        <p>COR.FRIO ${index + 1}</p>
-        <i class="fa fa-exclamation-circle"></i>
-      </div>
+        <div class="info">
+          <i class="fa fa-thermometer-empty"></i>
+          <p>COR.FRIO ${index + 1}</p>
+          <i class="fa fa-exclamation-circle"></i>
+        </div>
 
-      <div class="values">
-        <div class="circle">
-          <p>TH</p>
+        <div class="values">
+          <div class="circle">
+            <p>TH</p>
+          </div>
+        </div>
+
+        <div class="${item.stateCold == 1 ? "on" : "off"}">
+      
+        <p> <i class="fa fa-circle"></i> ${
+          item.stateCold == 1 ? "LIGADO" : "DESLIGADO"
+        }</p>
+        ${
+          item.stateCold == 1
+            ? '<i class="fa fa-check"></i>'
+            : '<i class="fa fa-exclamation-triangle"></i>'
+        }
         </div>
       </div>
 
-      <div class="${item.stateCold == 1 ? "on" : "off"}">
+      <div class="card ${item.stateHot == -1 ? "turnoff" : ""}">
+
+        <div class="info">
+          <i class="fa fa-thermometer-empty"></i>
+          <p>COR.QUENTE ${index + 1}</p>
+          <i class="fa fa-exclamation-circle"></i>
+        </div>
+
+        <div class="values">
+          <div class="circle">
+            <p>TH</p>
+          </div>
+        </div>
+
+        <div class="${item.stateHot == 1 ? "on" : "off"}">
       
-      <p> <i class="fa fa-circle"></i> ${
-        item.stateCold == 1 ? "LIGADO" : "DESLIGADO"
-      }</p>
-      ${
-        item.stateCold == 1
-          ? '<i class="fa fa-check"></i>'
-          : '<i class="fa fa-exclamation-triangle"></i>'
-      }
-      </div>
-    </div>
-
-    <div class="card ${item.stateHot == -1 ? "turnoff" : ""}">
-
-      <div class="info">
-        <i class="fa fa-thermometer-empty"></i>
-        <p>COR.QUENTE ${index + 1}</p>
-        <i class="fa fa-exclamation-circle"></i>
-      </div>
-
-      <div class="values">
-        <div class="circle">
-          <p>TH</p>
+        <p> <i class="fa fa-circle"></i> ${
+          item.stateHot == 1 ? "LIGADO" : "DESLIGADO"
+        }</p>
+        ${
+          item.stateHot == 1
+            ? '<i class="fa fa-check"></i>'
+            : '<i class="fa fa-exclamation-triangle"></i>'
+        }
         </div>
       </div>
-
-      <div class="${item.stateHot == 1 ? "on" : "off"}">
-      
-      <p> <i class="fa fa-circle"></i> ${
-        item.stateHot == 1 ? "LIGADO" : "DESLIGADO"
-      }</p>
-      ${
-        item.stateHot == 1
-          ? '<i class="fa fa-check"></i>'
-          : '<i class="fa fa-exclamation-triangle"></i>'
-      }
-      </div>
-    </div>
       `;
+      return item;
     });
 
     //function that show air conditioner informations
-    let show = document.querySelectorAll(".fa-exclamation-circle");
+    let show = document.querySelectorAll(".iconShow");
     let div = document.createElement("div");
     let print = document.querySelector(".print");
     div.classList.add("informations");
@@ -162,10 +163,9 @@ async function convertJson() {
         print.innerHTML = "";
       });
     });
-    return responseAir;
+    return response;
   } catch (err) {
     alert("[ERROR], We can't acess now, try later");
-    console.log(err);
     throw Error("[ERROR], We can't acess now, try later");
   }
 }
