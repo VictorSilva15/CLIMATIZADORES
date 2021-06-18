@@ -5,6 +5,10 @@
 <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript" target="blank"><img alt="GitHub issues" src="https://img.shields.io/static/v1?label=tech&message=JavaScript&color=F7DF1E&style=for-the-badge&logo=JavaScript"></a>
 <a href="https://github.com/VictorSilva15/NikeSportsAir-PageWeb/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/VictorSilva15/NikeSportsAir-PageWeb?style=for-the-badge"></a>
 
+[![GitHub issues](https://img.shields.io/github/issues/VictorSilva15/CLIMATIZADORES?style=for-the-badge)](https://github.com/VictorSilva15/CLIMATIZADORES/issues)
+[![GitHub forks](https://img.shields.io/github/forks/VictorSilva15/CLIMATIZADORES?style=for-the-badge)](https://github.com/VictorSilva15/CLIMATIZADORES/network)
+[![GitHub stars](https://img.shields.io/github/stars/VictorSilva15/CLIMATIZADORES?style=for-the-badge)](https://github.com/VictorSilva15/CLIMATIZADORES/stargazers)
+
 Esse projeto foi produzido com intuito de prática e aprendizado. Foi utilizado uma API que captura informações de climatizadores em formato JSON (acesse [aqui](https://climatizadores-json.vercel.app/)), e através de funções assíncronas esses valores são obtidos e renderizados na página HTML de forma estilizada. A página exibe apenas as informações dos climatizadores, sem possibilidade de controle pela plataforma. Com a página, é possível analisar se os climatizadores estão funcionando corretamente, ou se precisam de manutenção, além de mostrar quais estão ligados / desligados ou stand by. Essa versão contém opção de temas light ou dark, e deixei responsivo para que se adapte em diferentes formatos de telas.
 
 <h2>Status do Projeto</h2>
