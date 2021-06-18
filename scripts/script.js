@@ -6,9 +6,10 @@ async function convertJson() {
   try {
     let response = await fetch(url);
     response = await response.json();
-    response = await response.airConditioning;
-    h1.innerHTML += ` (${response.length})`;
-    response.map((item, index) => {
+    let responseAir = await response.airConditioning;
+    let responseSensor = await response.sensorsTH;
+    h1.innerHTML += ` (${responseAir.length})`;
+    responseAir.map((item, index) => {
       App.innerHTML += `
         <div class="card ${item.state == -1 ? "turnoff" : ""}">
 
@@ -48,7 +49,11 @@ async function convertJson() {
               : "DESLIGADO"
           }</p>
           ${
-            item.state == 1 || item.state == 0
+            item.state == 1
+              ? item.temperature == null
+                ? '<i class="fa fa-exclamation-triangle"></i>'
+                : '<i class="fa fa-check"></i>'
+              : item.state == 0
               ? '<i class="fa fa-check"></i>'
               : '<i class="fa fa-exclamation-triangle"></i>'
           }
@@ -73,14 +78,14 @@ async function convertJson() {
         <ul>
           <li>- Climatizador: ${i + 1}</li>
           <li>- Estado: ${
-            response[i].state == 1
+            responseAir[i].state == 1
               ? "LIGADO"
-              : response[i].state == 0
+              : responseAir[i].state == 0
               ? "STAND BY"
               : "DESLIGADO"
           }</li>
-          <li>- Temperatura: ${response[i].temperature}</li>
-          <li>- Umidade: ${response[i].damp}</li>
+          <li>- Temperatura: ${responseAir[i].temperature}</li>
+          <li>- Umidade: ${responseAir[i].damp}</li>
         </ul>
       `;
 
@@ -92,11 +97,10 @@ async function convertJson() {
         print.innerHTML = "";
       });
     });
-
-    return response;
+    return responseAir;
   } catch (err) {
     h1.innerHTML = "[ERROR], We can't acess now, try later";
-    console.log(err);
+    throw Error("[ERROR], We can't acess now, try later");
   }
 }
 convertJson();

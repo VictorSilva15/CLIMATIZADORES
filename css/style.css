@@ -83,6 +83,9 @@ body {
 .card .on i {
   color: #2dac00;
 }
+.card .on .fa-exclamation-triangle {
+  color: red;
+}
 .card .stand .fa-circle {
   color: lightseagreen;
 }
