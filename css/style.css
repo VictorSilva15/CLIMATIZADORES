@@ -172,10 +172,10 @@ h1 {
   list-style: none;
   margin: 10px 0px 10px 10px;
 }
-.fa-exclamation-circle {
+.iconShow {
   transition: transform 0.5s;
 }
-.fa-exclamation-circle:hover {
+.iconShow:hover {
   transform: translateY(-4px);
 }
 .dark .informations {
